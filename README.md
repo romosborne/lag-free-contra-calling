@@ -1,3 +1,11 @@
+# Lag free calling for Virtual Dances
+
+This is a technical guide on how to incorporate live music and live calling into a virtual dance without the issues of lag between caller and band.  The basic idea is to stream the band's music to the caller's PC, have the caller add the calls on top of that, and then send it off to the dancers.
+
+![Overview of setup](./overview.png)
+
+This method doesn't allow for easy communication from the caller to the band.  Dance lengths will need to be agreed beforehand.
+
 ## The Band
 
 1. Set up an account with a streaming service
@@ -12,13 +20,17 @@
 ## The Caller
 ### 1. Download and install the following
    - [OBS](https://obsproject.com/)
-   - [OBS-VirtualCam](https://github.com/CatxFish/obs-virtual-cam/releases)
+     - When asked about Streaming vs Recording, just hit close
+   - [OBS-VirtualCam](https://github.com/CatxFish/obs-virtual-cam/releases/latest)
+     - Make sure this is installed to the default directory
    - [VirtualAudio Cable](https://www.vb-audio.com/Cable/)
+     - Extract before installing
 
 ### Setup OBS
 ##### Scenes and Sources
 1. In the bottom left of OBS there is a scene list.  Create two scenes ['CallerOnly', 'Caller+Band']
 2. Next to the scenelist is a list of sources.  Copy the webcam source into both scenes
+   - If there isn't a webcam source, add a new `Video input capture` device.  The default settings will generally find the webcam.
 3. Add a new `Audio input capture` source called CallerMic in both scenes, selecting the mic you would like to use
 4. In the Caller+Band scene, create a new `Browser` source.  This should have the URL that the band has given you for their stream
 5. Adjust the sizes and positions of the sources in the Caller+Band scene to your liking.  You may need to `right-click > interact` on the browser source to select a full-screen option for best effect.
@@ -49,20 +61,17 @@ This set is optional, but makes switching between the scenes much easier
 ##### Zoom
 The last bit of setup is to channel all this into Zoom
 1. Start Zoom
-   a. Open `Zoom settings > Audio`
-   b. Set Microphone as `CABLE Output`.  This is the monitoring device we set up using VirtualCable earlier
-   c. Click `Advanced`
-   d. Select `Enable Original Sound` option
-   e. Open `Zoom settings > Audio`
-   f. Select `OBS-Camera` as camera.  This is the VirtualCam that we set up earlier
-7. When starting the meeting, make sure that Original Sound is enabled.  IE. that the option shown is to _disable_ original sound
-8. Join a call and **TEST EVERYTHING!** with the help of someone else on the call
+   1. Open `Zoom settings > Audio`
+   1. Set Microphone as `CABLE Output`.  This is the monitoring device we set up using VirtualCable earlier
+   1. Click `Advanced`
+   1. Select `Enable Original Sound` option
+   1. Open `Zoom settings > Video`
+   1. Select `OBS-Camera` as camera.  This is the VirtualCam that we set up earlier
+1. When starting the meeting, make sure that Original Sound is enabled.  IE. that the option shown is to _disable_ original sound
+1. Join a call and **TEST EVERYTHING!** with the help of someone else on the call
    - Can you switch between scenes?
    - Can you be heard in both scenes?
    - Can the band's stream be heard in the Caller+Band scene?
    - Are you balanced with the band?
       - Change the levels of `Desktop Audio` and `CallerMic` in the OBS audio mixer
-
-###### Notes
-- There is no real way to communicate with the band in this setup.  I suggest you agree a set number of times through
-- The band needs to set up another connection to the Zoom call for misc chatting between dances.  They should be muted when playing
+1. Enjoy the dances :)
