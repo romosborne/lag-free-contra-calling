@@ -77,8 +77,8 @@ The last bit of setup is to channel all this into Zoom
    - Are you balanced with the band?
       - Change the levels of `Desktop Audio` and `CallerMic` in the OBS audio mixer
       - If these levels aren't high enough open the `Edit > Advanced Audio Properties` and set the volumes to +10dB and try again
+1. Enjoy the dances :)
 
 ###### Notes
 - There is no real way to communicate with the band in this setup.  I suggest you agree a set number of times through
 - The band needs to set up another connection to the Zoom call for misc chatting between dances.  They should be muted when playing
-1. Enjoy the dances :)
