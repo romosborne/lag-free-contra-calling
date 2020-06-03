@@ -20,16 +20,17 @@
 1. In the bottom left of OBS there is a scene list.  Create two scenes ['CallerOnly', 'Caller+Band']
 2. Next to the scenelist is a list of sources.  Copy the webcam source into both scenes
 3. Add a new `Audio input capture` source called CallerMic in both scenes, selecting the mic you would like to use
-4. In the Caller+Band scene, create a new `Browser` source.  This should have the URL that the band has given you for their stream
+4. In the Caller+Band scene, create a new `Browser` source.  This should have the URL that the band has given you for their stream.  Make sure that 'Control audio via OBS' is unchecked.
 5. Adjust the sizes and positions of the sources in the Caller+Band scene to your liking.  You may need to `right-click > interact` on the browser source to select a full-screen option for best effect.
 
 ##### Audio Routing
 Next to the scene list is the audio mixer.  I suggest you mute everything that isn't mentioned below.
 1. Click `Edit > Advanced Audio Properties`
 2. Set the CallerMic and DesktopAudio sources to `Monitor and Output` in the Audio Monitoring drop-down
-3. Close the Advanced Audio Properties window
-4. Click `File > Settings > Audio`
-5. In the `Advanced` section set the Monitoring Device to `CABLE Input`
+3. If there are any more DesktopAudio sources, set them to `Monitor and Output` as well
+4. Close the Advanced Audio Properties window
+5. Click `File > Settings > Audio`
+6. In the `Advanced` section set the Monitoring Device to `CABLE Input`
 
 ##### Hotkeys
 This set is optional, but makes switching between the scenes much easier
@@ -60,8 +61,10 @@ The last bit of setup is to channel all this into Zoom
    - Can you switch between scenes?
    - Can you be heard in both scenes?
    - Can the band's stream be heard in the Caller+Band scene?
+      - If not, this may indicate an extra DesktopAudio source that isn't set up.  Go to `File > Settings > Audio` and set all DesktopAudio sources to DefaultDevice.  Make sure that they're all set to `Monitor and Output` in `Edit > Advanced Audio Properties`
    - Are you balanced with the band?
       - Change the levels of `Desktop Audio` and `CallerMic` in the OBS audio mixer
+      - If these levels aren't high enough open the `Edit > Advanced Audio Properties` and set the volumes to +10dB and try again
 
 ###### Notes
 - There is no real way to communicate with the band in this setup.  I suggest you agree a set number of times through
